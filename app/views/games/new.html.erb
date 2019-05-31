@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Guees the Word!</h1>
+  
+  <div class="flex">
+    <% @letters.each do |letter| %>
+      <div class="letter">
+        <%= letter %>
+      </div>
+    <% end %>
+  </div>
+  
+  <form action="/games/score" method="post" class="flex">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <input type="text" name="word" placeholder="Enter your word here..." class="input-field">
+    <input type="submit" value="Check" class="btn">
+    <%= hidden_field_tag :letters_at, @letters %>
+  </form>
+</div>
